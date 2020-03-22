@@ -1,0 +1,172 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper,
+		     tmargin = 35mm, 
+		     lmargin = 30mm,
+		     rmargin = 30mm,
+		     bmargin = 30mm}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+
+\usepackage{indentfirst}
+
+\usepackage{listings}
+\usepackage{afterpage}
+\usepackage[font=small,labelfont=bf]{caption}
+\pagestyle{plain}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+language=Python,
+aboveskip=4mm,
+belowskip=4mm,
+showstringspaces=false,
+columns=flexible,
+numbers=none,
+keywordstyle=\color{blue},
+numberstyle=\tiny\color{gray},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+
+\usepackage[hidelinks]{hyperref}
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = green  %Colour of citations
+}
+
+\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesubsection}{\Roman{section}. \arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\Roman{section}. \arabic{subsection}.\arabic{subsection}.}
+
+\begin{document}
+
+\linespread{1.2}
+
+\begin{titlepage}
+
+	\centering
+	\includegraphics[width=0.66\textwidth]{elte.jpg}\par\vspace{1cm}
+	{\scshape\LARGE Eötvös Loránd University \par}
+	\vspace{1cm}
+    \rule{140mm}{0.1mm}\\
+    \vspace{.5cm}
+	{\scshape\Large Scientific imaging \\ using artificial neural networks \\ in medicine\par}
+	\vspace{.5cm}
+	\rule{140mm}{0.1mm}\\
+	\vspace{.5cm}
+	{\large\itshape Olar Alex\par}
+	\vfill
+	supervisor\par
+	\vspace{0.5cm}
+	{\Large Prof. István Csabai}
+
+	\vfill
+	
+	{\large 2020 \par}
+\end{titlepage}
+
+\begin{abstract}
+
+In 2012 a neural network based architecture won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{russakovsky2015imagenet} in object classification. The model was called AlexNet \cite{krizhevsky2012imagenet} named after the creator Alex Krizhevsky. In 2015 a new network from Microsoft Research called ResNet \cite{he2016deep} surpassed human performance in the classification task of ILSVRC and won the Common Objects in Context (COCO) \cite{lin2014microsoft} detection challenge as well. Object localization, segmentation and image classification since then improved vastly and is still improving to this day. New techniques and state-of-the-arts come out on a daily basis and it is extremely difficult to keep up with the surge of scientific papers in computer vision and related fields. This has not remained without attention in biology nor medicine. Computer aided diagnostics systems has been deployed long before deep learning prevailed but they were ignored or rarely used. As of now, scientists at Google just announced that they have surpassed radiologists in reading mammography images for breast cancer screening \cite{mckinney2020international}, there are ongoing challenges and research for prostate cancer screening as well as stomach cancer screening \cite{li2019signet}. All of these techniques apply some newly emerged computer vision algorithms to enable clinical workers and doctors to work more efficiently and of course to lighten the burden that comes with national screening programs and countless work hours and to advance microscopes as well \cite{chen2019augmented}. In this work I present results and methods regarding computer aided diagnostics in colorectal cancer screening that was done collaboratively with Semmelweis University as well as techniques from a project applied to detect glial cells in human brain tissue in collaboration with Semmelweis University and automatic scoring of X-ray images for rheumatoid arthritis (RA2) patients in a Dream Challenge \cite{bionetworks}.
+
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\vspace{7mm}
+
+\subsection{General}
+
+\vspace{7mm}
+
+Neural networks are universal function approximators that are organized into layers. Layers of a neural network can be highly specialized, such as convolutional layers, that can efficiently learn spatial features, others might simply do matrix multiplication and apply a non-linear mapping to the input in order to extract underlying information from the data. A neural network architecture nowadays is a concatenation of differentiable layers and training means adjusting the tunable weights of these layers simultaneously based on input data and an objective/loss function that we aim to minimize.
+
+\vspace{4mm}
+
+\par Computer vision for many years was based on hand-engineered feature extraction and although convolutional neural networks (CNNs) were used for some dimensionally constrained problems, such as hand-written digit recognition \cite{lecun1998gradient}. The breakthrough for CNNs came with the advent of graphical processing units (GPUs). As these processors have become widely available due to computer gaming the hardware wass pushed to its limits and manufacturers poured a lot of money into research. Therefore the GPUs not only did include more and more on-board memory year-by-year but also performance was improving rapidly. Since computer graphics requires a lot of matrix multiplication and concurrent, parrarellized computation the scientific community jumped on it and started using graphical processors.
+
+\vspace{4mm}
+
+\par The ImageNet Large Scale Visual Recognition Challenge \cite{ILSVRC15} was launced in 2010 with approximately 1.2 million images containing 1000 categories. The goal of the challenge was to classify images into these categories on a held out test set that was not provided for the participants beforehand. In 2011 a 25\% top-5 error rate was already considered very good but in 2012 the first convolutional neural network based model \cite{krizhevsky2012imagenet} won the challenge beating the top results by a huge margin. In order to do so good they used GPUs heavily and proved that image classification is possible via CNNs on large scale images as well.
+
+\vspace{4mm}
+
+\par Soon after the re-discovery of convolutional networks for image recognition tasks the scientific community in computer vision realized that convolutional neural networks learn generalizable features and the datasets they considered different so far are not so distinct after all. Networks trained on a dataset of recognizing 1000 different classes can be transferred to other datasets with the change of the top of the network to recognize fundamentally different images. This method is called tranfer learning and is exceedingly used nowadays thanks to its efficiency.
+
+\vspace{4mm}
+
+\par Soon enough human performance was surpassed \cite{he2016deep} by the ResNet architecture and since then people are arguing whether there is still need on improving ImageNet performance because it is soo good. In response to that the ILSVRC stopped in 2017 to focus on other problemsets. 
+
+\vspace{7mm}
+
+\subsection{Motivation}
+
+\vspace{7mm}
+
+Currently deep learning is everywhere and almost everyone is trying to use it in order to achieve better accuracy in some task. In the industry the main application for artificial intelligence (AI) is to develop self-driving cars in addition to improve recommendation systems for online commercials. On the other hand, it would be highly beneficial for modern societies to use computer vision for better healtcare, education, road safety.
+
+\vspace{4mm}
+
+\par Google has partnered with the United Kingdom's health system ( NHS - National Health System ) to gather all the data they can to improve diagnostics and to build algorithms that can work for medics and sanitary workers in order to improve healthcare. This all sounds to good to be true in capitalism and it is. This has caused outrage amongst the people of the UK \cite{kollewe_2019} but they have some undeniable results regarding reading mammograms better then radiologists \cite{mckinney2020international}. We are in an era where governments can lead large-scale projects (in data size) in order to improve their healthcare systems without investing vast amounts of money for equipment. The COVID-19 crisis showed that with enough data and computational resources pneumonia detection can be achieved with high accuracy \cite{nvidia}.
+
+\vspace{4mm}
+
+\par In my opinion computer vision has achieved a state that almost every vision related task can be done on human performace level or even surpassed by computers. Such as glial cell detection in mouse brain tissue \cite{suleymanova2018deep}, reading mammograms  \cite{ribli2018detecting}, 
+predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such as CTs \cite{cciccek20163d}. I could also mention advancement in weak-lensing, astrophysics \cite{ribli2019improved} and new areas to explore, such as Hamiltonian \cite{greydanus2019hamiltonian} and Largrangian \cite{} neural networks for physics
+
+\subsection{Overview}
+
+\newpage
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}\grid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
