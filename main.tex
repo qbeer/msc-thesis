@@ -137,9 +137,117 @@ Currently deep learning is everywhere and almost everyone is trying to use it in
 \vspace{4mm}
 
 \par In my opinion computer vision has achieved a state that almost every vision related task can be done on human performace level or even surpassed by computers. Such as glial cell detection in mouse brain tissue \cite{suleymanova2018deep}, reading mammograms  \cite{ribli2018detecting}, 
-predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such as CTs \cite{cciccek20163d}. I could also mention advancement in weak-lensing, astrophysics \cite{ribli2019improved} and new areas to explore, such as Hamiltonian \cite{greydanus2019hamiltonian} and Largrangian \cite{cranmer2020lagrangian} neural networks for physics. It is also worth to mention advancement in reinforcement learning that started with playing Atari games \cite{mnih2013playing} successfully and on-par with human players and led to playing Dota 2 and Starcraft \cite{alphastarblog} in top-tier leagues. This might sound irrelevant but reinforcement learning robots will take over jobs of production line workers \cite{satariano_metz_2020}. 
+predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such as CTs \cite{cciccek20163d}. I could also mention advancement in weak-lensing, astrophysics \cite{ribli2019improved} and new areas to explore, such as Hamiltonian \cite{greydanus2019hamiltonian} and Largrangian \cite{cranmer2020lagrangian} neural networks for physics. It is also worth to mention advancement in reinforcement learning that started with playing Atari games \cite{mnih2013playing} successfully and on-par with human players and led to playing Dota 2 and Starcraft \cite{alphastarblog} in top-tier leagues. This might sound irrelevant but reinforcement learning robots will take over jobs of production line workers \cite{satariano_metz_2020} in the very near future.
+
+\vspace{4mm}
+
+\par Therefore it is the right time to do research in the widespread application of AI in the medical field and I am certain that doing something here is highly beneficial not only for career self-advencement but also for the society as well. 
+
+\vspace{7mm}
 
 \subsection{Overview}
+
+\vspace{7mm}
+
+//TODO: sum up everything here that comes
+
+\newpage
+
+\section{Computer vision}
+
+\vspace{7mm}
+
+\subsection{Vision}
+
+\vspace{7mm}
+
+\par The human visual cortex is composed of many hierarchical layers but the image data required by our eyes is processed through cells on the retina that are sensitive to light known as the rods and cones. The rods are sensitive to colour whilst the cones are sensitive for intensitiy of the photons. The number of cones is significantly higher then the number of rods, therefore we are much more adapted to detecting light intensity than to colours. The are three types of these cone cells causing trichromacy \cite{arrese2002trichromacy} and therefore in computer science the most widespread format of images is stored in RGB (red-green-blue) channels. The visual cortex is basically doing edge detection in the V1 (primary visual cortex) which has been computationally reproduced \cite{olshausen1996emergence} while it is assumed that the V2 \cite{ZiembaV2} and V4 are doing much more abstract representations, the latter already producing objects.
+
+\vspace{7mm}
+
+\subsection{Convolutional neural networks}
+
+\vspace{7mm}
+
+\par All these arguments inspired many layered convolutional neural networks that are doing computations spatial data such as images. Convolutions are about learning sliding kernels on three dimensional image data (two spatial dimensions and color channels, 2 + 1) these kernels provide efficient and translation invariant parameters for the models. The convolutional operation is relatively simple and straight-forward. On one dimensional sequences and functions it is defined as:
+
+\begin{align*}
+    (u * v)_n = \sum_{m = -\infty}^{\infty} u_{m} v_{n-m} \\
+    (f * g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t-\tau)d\tau
+\end{align*}
+
+\vspace{4mm}
+
+\par Spatially this is defined similarly but for a finite $K$ kernel with size $(k_1, k_2)$:
+
+\vspace{4mm}
+
+\begin{align*}
+    (I * K)_{ik} = \sum_{m = 1}^{k_1}\sum_{n = 1}^{k_2} I_{i - m, k - n} K_{m, n}
+\end{align*}
+
+\vspace{4mm}
+
+\par This can be visually illustarted by the figure below where the parameters of $K$ on the image is learned algorithmically by seeing lots of examples:
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{An-example-of-convolution-operation-in-2D-2.png}
+    \caption{2D convolution - Scientific Figure on ResearchGate. Available from: \url{https://www.researchgate.net/figure/An-example-of-convolution-operation-in-2D-2_fig3_324165524} [accessed 31 Mar, 2020]}
+    \label{fig:2d-conv}
+\end{figure}
+
+\vspace{4mm}
+
+\par There are two main branches of machine learning, such as suprvised and unsupervised learning. In applications of computer vision supervised learning is used most of the time. These are methods for image classification, object detection/segmentation. These all work by defining an objective function we want to minimize in order to achieve a desired rate of error. 
+
+\subsubsection{Binary classification}
+
+\par The simplest case is probably binary classification. In binary classification we want to maximize the joint probability of getting a data point $x$ and by applying a function $f(x, \theta) = \hat{y}$, where $\theta$ are function parameters, we predict $\hat{y}$ probability for $x$ being in class $1$ and therefore $1 - \hat{y}$ probability for being in class $0$. If $y$ is the true label of the data point, then we can formalize our explanation as:
+
+\vspace{4mm}
+
+\begin{align}
+    P(y = 1 | x) = \hat{y} \\
+    P(y = 0 | x) = 1 - \hat{y} \\
+    \quad \rightarrow P(y | x) = \hat{y}^{y} \cdot (1 - \hat{y})^{(1-y)}
+\end{align}
+
+\vspace{4mm}
+
+\par We want to maximize the sum of this joint probability for all the examples we have in a dataset but we can do so by taking the logarithm of this since the logarithm function is bijective. We call this our objective or loss function we aim to minimize:
+
+\vspace{4mm}
+
+\begin{equation}
+    L\big(y, \hat{y}\big) = -\sum_{i = 1}^{N_{data}} \Big(y^{(i)}\log\hat{y}^{(i)} + (1 - y^{(i)})\log(1 - \hat{y}^{(i)})\Big)
+\end{equation}
+
+\vspace{4mm}
+
+\par As we acquired $\hat{y}^{(i)}$ by a function $f(x^{(i)}, \theta) = \hat{y}^{(i)}$ on the data point $x$ with parameters $\theta$ therefore the objective function is parametrized by $\theta$ as well. So by feeding examplary data points to $f$ and calculating the loss we could also calculate the corresponding derivatives of the loss to the parameters $\frac{\partial L}{\partial \theta}$ and apply these derivatives with a pre-defined rate $\mu$ in order to improve the objective. We call this gradient descent since the gradient of the function gives the biggest slope on the multidimensional surface spanned by $\theta$ and if we move to the oppositve direction of the gradients we then minimize the diseired function. We call it batch stochastic gradient descent (SGD) if only a batch of samples is used due to computational resource limitations. This intoruduces noise to the learning process but if we sample the data uniformly we could still improve the objective function in many iterations:
+
+\vspace{4mm}
+
+\begin{equation}
+    L_{batch} = - \sum_{\#batch\_size}L(y^{(i)}, \hat{y}^{(i)}) = L_{batch}(\theta)  
+\end{equation}
+
+\vspace{4mm}
+
+\par The gradient with respect to (w.r.t) $\theta$ can be applied with batch SGD in the update step after each sample of data points:
+
+\vspace{4mm}
+
+\begin{equation}
+    \theta = \theta - \mu \frac{\partial L}{\partial \theta}
+\end{equation}
+
+\vspace{4mm}
+
+\par As it is evident from above any type of differentiable objective function can be used with any differentiable model $f$ and the model can be trained on samples of dataset in order to yield a successful predictor for previously unseen datapoints. The aim of computer vision is to be able to generalize algorithms as much as possible. The success of deep learning and convolutional neural networks lies in generalization since with large enough datasets they have very close performance on unseen data as on training data. Therefore we could train a model to recognize lung damage on CT scans on a large enough dataset and apply it in every hospital in the world where they have a gaming graphics card. This solution is pheasible and can improve healthcare tremendously. For lower-risk applications it is even possible to run models in the browser using WebGL technology that recognizies the graphics capabilities of the underlying machine and uses it in order to run trained models \cite{cohen2019chester}.
 
 \newpage
 
@@ -147,26 +255,3 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 \bibliography{references}
 
 \end{document}\grid
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
