@@ -60,7 +60,7 @@ tabsize=3
 
 \begin{document}
 
-\linespread{1.2}
+\linespread{1.5}
 
 \begin{titlepage}
 
@@ -87,7 +87,11 @@ tabsize=3
 
 \begin{abstract}
 
+\vfill
+
 In 2012 a neural network-based architecture won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \cite{russakovsky2015imagenet} in object classification. The model was called AlexNet \cite{krizhevsky2012imagenet} named after the creator Alex Krizhevsky. In 2015 a new network from Microsoft Research called ResNet \cite{he2016deep} surpassed human performance in the classification task of ILSVRC and won the Common Objects in Context (COCO) \cite{lin2014microsoft} detection challenge as well. Object localization, segmentation, and image classification since then improved vastly and is still improving to this day. New techniques and state-of-the-arts come out daily and it is extremely difficult to keep up with the surge of scientific papers in computer vision and related fields. This has not remained without attention in biology nor medicine. Computer-aided diagnostics systems have been deployed long before deep learning prevailed but they were ignored or rarely used. As of now, scientists at Google just announced that they have surpassed radiologists in reading mammography images for breast cancer screening \cite{mckinney2020international}, there are ongoing challenges and research for prostate cancer screening as well as stomach cancer screening \cite{li2019signet}. All of these techniques apply some newly emerged computer vision algorithms to enable clinical workers and doctors to work more efficiently and of course to lighten the burden that comes with national screening programs and countless work hours and to advance microscopes as well \cite{chen2019augmented}. In this work, I present results and methods regarding computer-aided diagnostics in colorectal cancer screening that was done collaboratively with Semmelweis University as well as techniques from a project applied to detect glial cells in human brain tissue in collaboration with Semmelweis University and automatic scoring of X-ray images for rheumatoid arthritis (RA2) patients in a Dream Challenge \cite{bionetworks}.
+
+\vfill
 
 \end{abstract}
 
@@ -304,7 +308,62 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \par For multi-object detection and segmentation much diverse and more intricate loss functions are used and the networks themselves \cite{ren2015faster} are modified as well to handle sliding-windows efficiently via convolutions \cite{redmon2016you}.
 
-\section{ Medical imaging}
+\vspace{7mm}
+
+\section{Medical imaging}
+
+\vspace{7mm}
+
+\par Medical imaging was a thing since the discovery of the X-ray. In the beginning, as in photography, they used light sensitive materials to capture the different amount of radiance from the light source but as everything became digitized in the 20th century the field moved on to using silicon-based sensors. These capture data that can be converted to pixel values and used by the computer. Some kind of image processing is inevitable due to contrast, brightness, hue and other corrections such as image stabilization for moving objects.
+
+\vspace{4mm}
+
+\par In medicine and biology a fast digitization process can be experienced. Even in Hungary clinics are starting to realize that the future is based on digital processing of biological samples. There are some techniques that were inherently digital such as MRI \footnote{magnetic resonance imaging} and fMRI \footnote{functional-MRI} and PET \footnote{positron emission tomography} due to the process involved requiring the image, however, in pathology were a large amount of biopsies are taken each year the case is not so. Medics usually scan to manually sliced slices of tissue via optical microscopes and make decisions based on that. This methods works well and is reliable but does not scale well. 
+
+\vspace{4mm}
+
+\par There exist many companies that manufacture digital microscopes that can process many slides of tissue samples a day and save the high-quality images to a local, clinical database. With the advent of deep learning this data can be pre-processed via computer vision algorithms. It is only a matter of proper data acquisition by the clinical institutes to enable large scale applications such as automatized negative case dismissal, cell count in any kind of tissue, alerts on maligns cases and even improved diagnostic capabilities.
+
+\vspace{7mm}
+
+\subsection{Cancer detection}
+
+\vspace{7mm}
+
+\par Reading mammograms and evaluating tissue samples for colorectal cancer takes years of practice after acquiring a degree in medicine. The skill is gathered by seeing many samples and noticing little but usual similarities between different patients. 
+
+\vspace{4mm}
+
+\par For mammography the image is an X-ray scan of the tissue and noticing nodules is the goal. In Hungary and also in the UK it is mandatory for a medic after finishing university to obtain a certificate for reading mammograms since it is not a trivial thing to do well. On the other hand, there are countries where this is not required and it shows in performance, which is shown in \cite{mckinney2020international}.
+
+\vspace{4mm}
+
+\par For pathologist the tissue is usually stained with H\&E \footnote{haemotoxylin and eosin} staining, which is a standard protocol \cite{fischer2008hematoxylin}, that has a specific purple and pink color. Inspecting these through microscopes enables doctors to issue diagnosis based on the visual attributes of the samples.
+
+\vspace{4mm}
+
+\par Since it seems that cancer detection in such tissue is mainly based on visual attributes of the environment it should not be surprising that the task can be done with convolutional neural networks.
+
+\vspace{4mm}
+
+\par According to the WHO \footnote{World Health Organization} every one death out of six is due to cancer \cite{whoCANCER}. The leading cancer type among women is breast cancer while it is colorectal cancer in men. We disregard here the large case number of lung cancer since it is mainly due to smoking and is in decay for decades now.
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{all_cancer_pie_charts.png}
+    \caption{New cancer cases and death rates according to the International Agency on Cancer Research,  WHO}
+    \label{fig:cancer_pie_chart}
+\end{figure}
+
+\vspace{4mm}
+
+\par The lower than expected death rate in breast cancer is due to the national screening programs that are able to detect malign lesions before they are in a terminal state. National colorectal cancer screening programs have been launched in the past decade in the Netherlands \cite{rivm_2014}, in the UK \cite{gov.uk_2015} and is rolling out or in an early stage in many other countries according to the European Union \cite{euReportOnCancer}.
+
+\vspace{4mm}
+
+\par A national screening program requires a lot of effort from pathologist and much more highly-skilled working hours that is available in any country. It cannot be a short-term solution to educate more doctors in this skill for obvious reasons, therefore we should turn to other available solutions. One is to automate as many things as possible. For screening programs a huge impact can be achieved by dismissing negative samples and only letting through positive ones with extremely high precision and crucially low false-negative rate. On the other hand, one might be interested in pre-selecting high-risk patients based on the diagnosis to start treatment as soon as possible.
 
 \newpage
 
