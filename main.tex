@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{geometry}
+\usepackage{makecell}
 \geometry{a4paper,
              tmargin = 35mm, 
              lmargin = 30mm,
@@ -17,6 +18,14 @@
 \usepackage{setspace}
 \usepackage{amsmath,amssymb}
 \usepackage{float}
+
+\usepackage{markdown}
+\markdownSetup{
+  renderers = {
+    link     = {#1},        % Render a link as the link label.
+    emphasis = {\emph{#1}}, % Render emphasis using `\emph`.
+  }
+}
 
 \usepackage{indentfirst}
 
@@ -364,6 +373,236 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 \vspace{4mm}
 
 \par A national screening program requires a lot of effort from pathologist and much more highly-skilled working hours that is available in any country. It cannot be a short-term solution to educate more doctors in this skill for obvious reasons, therefore we should turn to other available solutions. One is to automate as many things as possible. For screening programs a huge impact can be achieved by dismissing negative samples and only letting through positive ones with extremely high precision and crucially low false-negative rate. On the other hand, one might be interested in pre-selecting high-risk patients based on the diagnosis to start treatment as soon as possible.
+
+\newpage
+
+\section{Deep learning in pathology}
+
+\vspace{7mm}
+
+\par In the project we have been working on in collaboration with the 2nd Department of Pathology- Semmelweis University we aimed to collect a large amount of digitized whole slide scans from rectal biopsies and annotate them with expert pathologist. The annotation process included global labels and local, free-hand area annotations for specific lesions. Having acquired the necessary amount of data we developed and validated a sophisticated autonomous detection system via computer vision techniques. We qualitatively compare the AI pathologist with human experts in all categories.
+
+\vspace{4mm}
+
+\subsection{Screening process}
+
+\vspace{4mm}
+
+\par The screening process involves the following steps: first a surgeon takes a sample from the bowel of the patient and he/she sends it to histology where pathologist analyze and diagnose the sample. We use these digitized samples to make a diagnoses with the autonomous system.
+
+\vspace{4mm}
+
+\subsection{Similar studies}
+
+\vspace{4mm}
+
+\par Many studies have emerged in the past few years using modern computer vision techniques in biomedical imaging and bowel tissue analysis is not an exception at all. One of the first studies occupied with rectal polyp classification \cite{korbar2017deep}, while an other study extract features with a deep network trained on natural images and uses those features to predict a more precise grade for the COAD WSI \footnote{Colon Adenocarcinoma Whole Slide Imaging} data \cite{bychkov2018deep}. A recent study similar to ours shows \cite{skrede2020deep} survival probability based on whole slide images.
+
+\vspace{4mm}
+
+\subsection{Goals}
+
+\vspace{4mm}
+
+\par There are a few distinct ways of handling large scale whole slide images. Usually in deep learning images are sized less than \begin{markdown}
+`1024 x 1024 x 3`
+\end{markdown} 
+pixels and therefore one can cut out small pieces of a large image and train a network on that data to classify the patches, this was done by \cite{korbar2017deep}, \cite{bychkov2018deep} and \cite{skrede2020deep}. It is also possible to extract features from these smaller patches and then put together those as training data for a new network to classify the whole image in its integrity for something, this was done by \cite{skrede2020deep} and we have a very similar approach but not for survival but total whole slide patch level segmentation of the image. We aim to categorize every patch and draw a diagnosis based on the full slide. In order to make our diagnoses interpretable we need to categorize every region as a human would do and give back localized information and reduce that to a diagnoses later on. Our work is also very similar to \cite{takahama2019multi} since we use a two step prediction process in order to acquire higher accuracy.
+
+\vspace{4mm}
+
+\subsection{Data}
+
+\vspace{4mm}
+
+\par The tissue segments were scanned at 400x zoom and annotated with the QuPath v0.1.2. software. The software included a viewer and a free-hand ROI \footnote{region of interest} annotator tool but I needed to write a plugin in order to extract the annotation data. This open-source plugin was developed in Java and is available at \url{https://github.com/qbeer/qupath-binarymask-extension}. Basically the extension is capable of extracting and loading annotation masks from a pre-specified directory into a QuPath project. The annotation mask are saved into PNG format in black and white for efficient storing and in reduced size based due to very annotated regions.
+
+\vspace{7mm}
+
+\begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{qupath_screenshot.png}
+    \captionof{figure}{View of the annotated region in QuPath, all the metadata saved in the filename of the annotation}
+    \label{fig:annotation_qupath}
+\end{minipage}\qquad\qquad
+\begin{minipage}[t]{0.4\textwidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{T001_Other_(4.00,416425,200638,17047,19660)-mask.png}
+    \captionof{figure}{(package, annotation type, down-scaling factor, x, y, width, height) : T001\_Other\_(4.00,416425,
+    200638,17047,19660)-mask.png}
+    \label{fig:annotation}
+\end{minipage}
+
+\vspace{7mm}
+
+\par After this the images were processed via Python. We cut out \begin{markdown} 
+`512 x 512 x 3`  
+\end{markdown} 
+sized patches and matched the location of the annotations to the corresponding patches therefore getting patch level segmentation of the whole slide image. In order to get rid of the meaningless patches, those that were mainly white, containing only tissue residue or scanning errors we applied pixel thresholds on the patches. We took the intensity from the HSI components (hue, saturation and intensity) and set a threshold of 245 for 8 bit pixels to extract all the white patches. We also calculated the saturation for the patch and if it was less then .05 we said that the pixel is mainly gray, therefore useless and excluded it.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.6\textwidth]{intensity.png}
+    \caption{White limit}
+    \label{fig:intensity}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\textwidth]{saturation.png}
+    \captionof{figure}{Gray limit}
+    \label{fig:saturation}
+\end{figure}
+
+\vspace{4mm}
+
+\par Here I also provide an illustration to justify this and show the image patches acquired as a result after applying this thresholding methodology. It is obvious that the method took care of removing the residual tissue and remains of grime (dirt particles, fur, hair, etc.) on the glass plate that the slide was on.
+
+\vspace{10mm}
+
+\begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{082_19_16683_zoom_1.15.png}
+    \captionof{figure}{Image after thresholding and patching - with the corresponding masks on top}
+    \label{fig:preprocessedslide}
+\end{minipage} \qquad
+\begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{082_qupath.png}
+    \captionof{figure}{The original image before the pre-processing}
+    \label{fig:origslide}
+\end{minipage}
+
+\vspace{7mm}
+
+\par The prediction process happens in two stages, the first is a patch-level classification that will be detailed later. The second process is a modified U-Net \cite{ronneberger2015u} architecture that we applied to predict a semantic segmentation map of the WSI in lower resolution. The input was a down-scaled version of the original whole slide image and each pixel was an intermediate feature from the classifier, therefore, the input contained many more channels than the usual R, G, B color channels. This had to be stored in a separate dataset and needed to be rebuilt for each and every classifier that we trained.
+
+\vspace{4mm}
+
+\subsubsection{Data for testing}
+
+\vspace{4mm}
+
+\par The test dataset was annotated by board certified, expert pathologists. They annotated the slides without any additional information and got the images anonymized. They needed to record all local and global categories in check boxes to draw clinical conclusion and we ignored free-hand annotation as it was not crucial for comparison in clinical diagnosis. 
+
+\vspace{4mm}
+
+\subsubsection{Annotation categories}
+
+\vspace{4mm}
+
+\par We gathered two main types of annotations for the dataset: local and global labels. Locally we asked pathologists to annotate the following regions by drawing free-hand masks on the slide with QuPath. The categories were selected based on clinical relevance, expert review and consensus.
+
+\vspace{4mm}
+
+\begin{enumerate}
+    \item \textbf{dysplasia} - abnormal epithelial growth
+    \item \textbf{highgrade\_dysplasia} - severe dysplasia (annotated inside dysplasia)
+    
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{dysplasia.png}
+        \captionof{figure}{Dysplasia}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{high_grade_dysplasia.png}
+        \captionof{figure}{High-grade dysplasia}
+    \end{minipage}
+    
+    \item \textbf{adenocarcinoma}
+    \item \textbf{suspicious\_for\_invasion} - obvious signs of invasion
+    \item \textbf{inflammation}
+    \item \textbf{resection\_edge}
+    \item \textbf{tumor\_necrosis}
+    \item \textbf{lymphovascular\_invasion}
+    \item \textbf{artifact}
+    \item \textbf{annotated} - there are several slides present on one scan and one should be randomly selected and annotated
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{annotated.png}
+    \end{figure}
+    
+\end{enumerate}
+
+\par Above some illustration is present with the annotated local categories. For the global labels the below list was selected:
+
+\vspace{4mm}
+
+\begin{itemize}
+    \item main\_category
+    \begin{itemize}
+        \item CRC - colorectal cancer
+        \item advanced\_adenoma
+        \item non\_neoplastic\_leison
+        \item negative
+    \end{itemize}
+    \item Haggit\_level \cite{aarons2014management}
+    \item polyp\_type
+    \begin{itemize}
+        \item hyperplastic\_polyp
+        \item sessile\_serrated\_polyp
+        \item traditional\_serrated\_adenoma
+        \item tubular\_adenoma
+        \item tubulovillous\_adenoma
+        \item villous\_adenoma
+        \iteme hybrid
+    \end{itemize}
+    \item biopsy\_or\_polyp - (either biopsy or polyp, the type of the sample)
+    \item other comments
+\end{itemize}
+
+\vspace{4mm}
+
+\subsection{Vision models}
+
+\vspace{7mm}
+
+\par Our vision models were implemented in Tensorflow v2.0. and as I mentioned before it was a two step process. The first model was a ResNet50 based architecture \cite{he2016deep} with a fully-connected head on top of it. Optimization was done with the Rectified Adam optimizer \cite{liu2019variance} with lookahead \cite{zhang2019lookahead}. The objective function was the sum of pairwise binary cross-entropy loss since a patch could be labeled with more categories if its on a mask edge. This model has approximately 24 million trainable parameters: 
+
+\vspace{4mm}
+
+\begin{table}[H]
+    \centering
+    \begingroup
+    \setlength{\arrayrulewidth}{0.1mm}
+    \setlength{\tabcolsep}{22pt}
+    \renewcommand{\arraystretch}{1.7}
+    \scriptsize
+    \begin{tabular}{| c | c |} \hline
+        \textbf{layer} name &  \textbf{ResNet50} \\ \hline
+        conv1 &  7 \times 7, 64, stride 2 \\ \hline
+        conv2\_x &  \makecell{3 \times 3 \quad max \quad pool, \quad stride \quad 2 \\ \begin{bmatrix}
+1 \times 1, 64 \\
+3 \times 3, 64 \\
+1 \times 1, 256 
+\end{bmatrix} \times \quad 3} \\ \hline
+        conv3\_x &  \makecell{ \begin{bmatrix}
+1 \times 1, 128 \\
+3 \times 3, 128 \\
+1 \times 1, 512 
+\end{bmatrix} \times \quad 4} \\ \hline
+        conv4\_x &  \makecell{ \begin{bmatrix}
+1 \times 1, 256 \\
+3 \times 3, 256 \\
+1 \times 1, 1024 
+\end{bmatrix} \times \quad 6} \\ \hline
+        conv5\_x & \makecell{ \begin{bmatrix}
+1 \times 1, 512 \\
+3 \times 3, 512 \\
+1 \times 1, 2048 
+\end{bmatrix} \times \quad 3 } \\ \hline
+        & average pool, 256-d fc, 128-d fc, 10-d fc \\ \hline
+    \end{tabular}
+    \endgroup
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+\vspace{4mm}
+
+\par We applied binary cross-entropy loss between all pairs, the parameters were $10^{-4}$ base learning rate for the Rectified Adam optmizer which decayed in $45'000$ steps to $5 \cdot 10^{-6}$ while the lookahead optmizer did updates with a $0.5$ step size after six steps of exploration.
 
 \newpage
 
