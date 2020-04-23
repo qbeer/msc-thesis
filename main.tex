@@ -7,6 +7,7 @@
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{makecell}
+\usepackage{adjustbox}
 \geometry{a4paper,
              tmargin = 35mm, 
              lmargin = 30mm,
@@ -323,15 +324,15 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{7mm}
 
-\par Medical imaging was a thing since the discovery of the X-ray. In the beginning, as in photography, they used light sensitive materials to capture the different amount of radiance from the light source but as everything became digitized in the 20th century the field moved on to using silicon-based sensors. These capture data that can be converted to pixel values and used by the computer. Some kind of image processing is inevitable due to contrast, brightness, hue and other corrections such as image stabilization for moving objects.
+\par Medical imaging was a thing since the discovery of the X-ray. In the beginning, as in photography, they used light-sensitive materials to capture the different amounts of radiance from the light source but as everything became digitized in the 20th century the field moved on to using silicon-based sensors. These capture data that can be converted to pixel values and used by the computer. Some kind of image processing is inevitable due to contrast, brightness, hue, and other corrections such as image stabilization for moving objects.
 
 \vspace{4mm}
 
-\par In medicine and biology a fast digitization process can be experienced. Even in Hungary clinics are starting to realize that the future is based on digital processing of biological samples. There are some techniques that were inherently digital such as MRI \footnote{magnetic resonance imaging} and fMRI \footnote{functional-MRI} and PET \footnote{positron emission tomography} due to the process involved requiring the image, however, in pathology were a large amount of biopsies are taken each year the case is not so. Medics usually scan to manually sliced slices of tissue via optical microscopes and make decisions based on that. This methods works well and is reliable but does not scale well. 
+\par In medicine and biology, a fast digitization process can be experienced. Even in Hungary clinics are starting to realize that the future is based on digital processing of biological samples. Some techniques were inherently digital such as MRI \footnote{magnetic resonance imaging} and fMRI \footnote{functional-MRI} and PET \footnote{positron emission tomography} due to the process involved requiring the image, however, in pathology where a large number of biopsies are taken each year the case is not so. Medics usually scan to manually sliced slices of tissue via optical microscopes and make decisions based on that. This method works well and is reliable but does not scale well. 
 
 \vspace{4mm}
 
-\par There exist many companies that manufacture digital microscopes that can process many slides of tissue samples a day and save the high-quality images to a local, clinical database. With the advent of deep learning this data can be pre-processed via computer vision algorithms. It is only a matter of proper data acquisition by the clinical institutes to enable large scale applications such as automatized negative case dismissal, cell count in any kind of tissue, alerts on maligns cases and even improved diagnostic capabilities.
+\par There exist many companies that manufacture digital microscopes that can process many slides of tissue samples a day and save high-quality images to a local, clinical database. With the advent of deep learning, this data can be pre-processed via computer vision algorithms. It is only a matter of proper data acquisition by the clinical institutes to enable large scale applications such as automatized negative case dismissal, cell count in any kind of tissue, alerts on maligns cases, and even improved diagnostic capabilities.
 
 \vspace{7mm}
 
@@ -343,7 +344,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par For mammography the image is an X-ray scan of the tissue and noticing nodules is the goal. In Hungary and also in the UK it is mandatory for a medic after finishing university to obtain a certificate for reading mammograms since it is not a trivial thing to do well. On the other hand, there are countries where this is not required and it shows in performance, which is shown in \cite{mckinney2020international}.
+\par For mammography, the image is an X-ray scan of the tissue, and noticing nodules is the goal. In Hungary and also in the UK it is mandatory for a medic after finishing university to obtain a certificate for reading mammograms since it is not a trivial thing to do well. On the other hand, there are countries where this is not required and it shows in performance, which is shown in \cite{mckinney2020international}.
 
 \vspace{4mm}
 
@@ -368,11 +369,11 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par The lower than expected death rate in breast cancer is due to the national screening programs that are able to detect malign lesions before they are in a terminal state. National colorectal cancer screening programs have been launched in the past decade in the Netherlands \cite{rivm_2014}, in the UK \cite{gov.uk_2015} and is rolling out or in an early stage in many other countries according to the European Union \cite{euReportOnCancer}.
+\par The lower than expected death rate in breast cancer is due to the national screening programs that can detect malign lesions before they are in a terminal state. National colorectal cancer screening programs have been launched in the past decade in the Netherlands \cite{rivm_2014}, in the UK \cite{gov.uk_2015} and are rolling out or in an early stage in many other countries according to the European Union \cite{euReportOnCancer}.
 
 \vspace{4mm}
 
-\par A national screening program requires a lot of effort from pathologist and much more highly-skilled working hours that is available in any country. It cannot be a short-term solution to educate more doctors in this skill for obvious reasons, therefore we should turn to other available solutions. One is to automate as many things as possible. For screening programs a huge impact can be achieved by dismissing negative samples and only letting through positive ones with extremely high precision and crucially low false-negative rate. On the other hand, one might be interested in pre-selecting high-risk patients based on the diagnosis to start treatment as soon as possible.
+\par A national screening program requires a lot of effort from the pathologist and much more highly-skilled working hours that are available in any country. It cannot be a short-term solution to educate more doctors in this skill for obvious reasons, therefore we should turn to other available solutions. One is to automate as many things as possible. For screening programs, a huge impact can be achieved by dismissing negative samples and only letting through positive ones with extremely high precision and crucially low false-negative rate. On the other hand, one might be interested in pre-selecting high-risk patients based on the diagnosis to start treatment as soon as possible.
 
 \newpage
 
@@ -380,7 +381,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{7mm}
 
-\par In the project we have been working on in collaboration with the 2nd Department of Pathology- Semmelweis University we aimed to collect a large amount of digitized whole slide scans from rectal biopsies and annotate them with expert pathologist. The annotation process included global labels and local, free-hand area annotations for specific lesions. Having acquired the necessary amount of data we developed and validated a sophisticated autonomous detection system via computer vision techniques. We qualitatively compare the AI pathologist with human experts in all categories.
+\par In the project we have been working on in collaboration with the 2nd Department of Pathology- Semmelweis University we aimed to collect a large amount of digitized whole slide scans from rectal biopsies and annotate them with an expert pathologist. The annotation process included global labels and local, free-hand area annotations for specific lesions. Having acquired the necessary amount of data we developed and validated a sophisticated autonomous detection system via computer vision techniques. We qualitatively compare the AI pathologist with human experts in all categories.
 
 \vspace{4mm}
 
@@ -388,7 +389,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par The screening process involves the following steps: first a surgeon takes a sample from the bowel of the patient and he/she sends it to histology where pathologist analyze and diagnose the sample. We use these digitized samples to make a diagnoses with the autonomous system.
+\par The screening process involves the following steps: first a surgeon takes a sample from the bowel of the patient and he/she sends it to histology where pathologists analyze and diagnose the sample. We use these digitized samples to make a diagnosis with the autonomous system.
 
 \vspace{4mm}
 
@@ -396,7 +397,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par Many studies have emerged in the past few years using modern computer vision techniques in biomedical imaging and bowel tissue analysis is not an exception at all. One of the first studies occupied with rectal polyp classification \cite{korbar2017deep}, while an other study extract features with a deep network trained on natural images and uses those features to predict a more precise grade for the COAD WSI \footnote{Colon Adenocarcinoma Whole Slide Imaging} data \cite{bychkov2018deep}. A recent study similar to ours shows \cite{skrede2020deep} survival probability based on whole slide images.
+\par Many studies have emerged in the past few years using modern computer vision techniques in biomedical imaging and bowel tissue analysis is not an exception at all. One of the first studies occupied with rectal polyp classification \cite{korbar2017deep}, while another study extract features with a deep network trained on natural images and uses those features to predict a more precise grade for the COAD WSI \footnote{Colon Adenocarcinoma Whole Slide Imaging} data \cite{bychkov2018deep}. A recent study similar to ours shows \cite{skrede2020deep} survival probability based on whole slide images.
 
 \vspace{4mm}
 
@@ -407,7 +408,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 \par There are a few distinct ways of handling large scale whole slide images. Usually in deep learning images are sized less than \begin{markdown}
 `1024 x 1024 x 3`
 \end{markdown} 
-pixels and therefore one can cut out small pieces of a large image and train a network on that data to classify the patches, this was done by \cite{korbar2017deep}, \cite{bychkov2018deep} and \cite{skrede2020deep}. It is also possible to extract features from these smaller patches and then put together those as training data for a new network to classify the whole image in its integrity for something, this was done by \cite{skrede2020deep} and we have a very similar approach but not for survival but total whole slide patch level segmentation of the image. We aim to categorize every patch and draw a diagnosis based on the full slide. In order to make our diagnoses interpretable we need to categorize every region as a human would do and give back localized information and reduce that to a diagnoses later on. Our work is also very similar to \cite{takahama2019multi} since we use a two step prediction process in order to acquire higher accuracy.
+pixels and therefore one can cut out small pieces of a large image and train a network on that data to classify the patches, this was done by \cite{korbar2017deep}, \cite{bychkov2018deep} and \cite{skrede2020deep}. It is also possible to extract features from these smaller patches and then put together those as training data for a new network to classify the whole image in its integrity for something, this was done by \cite{skrede2020deep} and we have a very similar approach but not for survival but total whole slide patch level segmentation of the image. We aim to categorize every patch and draw a diagnosis based on the full slide. To make our diagnoses interpretable we need to categorize every region as a human would do and give back localized information and reduce that to diagnosis later on. Our work is also very similar to \cite{takahama2019multi} since we use a two-step prediction process to acquire higher accuracy.
 
 \vspace{4mm}
 
@@ -415,7 +416,7 @@ pixels and therefore one can cut out small pieces of a large image and train a n
 
 \vspace{4mm}
 
-\par The tissue segments were scanned at 400x zoom and annotated with the QuPath v0.1.2. software. The software included a viewer and a free-hand ROI \footnote{region of interest} annotator tool but I needed to write a plugin in order to extract the annotation data. This open-source plugin was developed in Java and is available at \url{https://github.com/qbeer/qupath-binarymask-extension}. Basically the extension is capable of extracting and loading annotation masks from a pre-specified directory into a QuPath project. The annotation mask are saved into PNG format in black and white for efficient storing and in reduced size based due to very annotated regions.
+\par The tissue segments were scanned at 400x zoom and annotated with the QuPath v0.1.2. software. The software included a viewer and a free-hand ROI \footnote{region of interest} annotator tool but I needed to write a plugin to extract the annotation data. This open-source plugin was developed in Java and is available at \url{https://github.com/qbeer/qupath-binarymask-extension}. The extension is capable of extracting and loading annotation masks from a pre-specified directory into a QuPath project. The annotation mask is saved into PNG format in black and white for efficiently storing and in reduced size based due to very annotated regions.
 
 \vspace{7mm}
 
@@ -435,10 +436,10 @@ pixels and therefore one can cut out small pieces of a large image and train a n
 
 \vspace{7mm}
 
-\par After this the images were processed via Python. We cut out \begin{markdown} 
+\par After this, the images were processed via Python. We cut out \begin{markdown} 
 `512 x 512 x 3`  
 \end{markdown} 
-sized patches and matched the location of the annotations to the corresponding patches therefore getting patch level segmentation of the whole slide image. In order to get rid of the meaningless patches, those that were mainly white, containing only tissue residue or scanning errors we applied pixel thresholds on the patches. We took the intensity from the HSI components (hue, saturation and intensity) and set a threshold of 245 for 8 bit pixels to extract all the white patches. We also calculated the saturation for the patch and if it was less then .05 we said that the pixel is mainly gray, therefore useless and excluded it.
+sized patches and matched the location of the annotations to the corresponding patches, therefore, getting patch level segmentation of the whole slide image. To get rid of the meaningless patches, those that were mainly white, containing only tissue residue or scanning errors we applied pixel thresholds on the patches. We took the intensity from the HSI components (hue, saturation, and intensity) and set a threshold of 245 for 8-bit pixels to extract all the white patches. We also calculated the saturation for the patch and if it was less then .05 we said that the pixel is mainly gray, therefore useless and excluded it.
 
 \begin{figure}[H]
     \centering
@@ -456,7 +457,7 @@ sized patches and matched the location of the annotations to the corresponding p
 
 \vspace{4mm}
 
-\par Here I also provide an illustration to justify this and show the image patches acquired as a result after applying this thresholding methodology. It is obvious that the method took care of removing the residual tissue and remains of grime (dirt particles, fur, hair, etc.) on the glass plate that the slide was on.
+\par Here I also illustrate to justify this and show the image patches acquired as a result after applying this thresholding methodology. It is obvious that the method took care of removing the residual tissue and remains of grime (dirt particles, fur, hair, etc.) on the glass plate that the slide was on.
 
 \vspace{10mm}
 
@@ -475,7 +476,7 @@ sized patches and matched the location of the annotations to the corresponding p
 
 \vspace{7mm}
 
-\par The prediction process happens in two stages, the first is a patch-level classification that will be detailed later. The second process is a modified U-Net \cite{ronneberger2015u} architecture that we applied to predict a semantic segmentation map of the WSI in lower resolution. The input was a down-scaled version of the original whole slide image and each pixel was an intermediate feature from the classifier, therefore, the input contained many more channels than the usual R, G, B color channels. This had to be stored in a separate dataset and needed to be rebuilt for each and every classifier that we trained.
+\par The prediction process happens in two stages, the first is a patch-level classification that will be detailed later. The second process is a modified U-Net \cite{ronneberger2015u} architecture that we applied to predict a semantic segmentation map of the WSI in lower resolution. The input was a down-scaled version of the original whole slide image and each pixel was an intermediate feature from the classifier, therefore, the input contained many more channels than the usual R, G, B color channels. This had to be stored in a separate dataset and needed to be rebuilt for every classifier that we trained.
 
 \vspace{4mm}
 
@@ -483,7 +484,7 @@ sized patches and matched the location of the annotations to the corresponding p
 
 \vspace{4mm}
 
-\par The test dataset was annotated by board certified, expert pathologists. They annotated the slides without any additional information and got the images anonymized. They needed to record all local and global categories in check boxes to draw clinical conclusion and we ignored free-hand annotation as it was not crucial for comparison in clinical diagnosis. 
+\par The test dataset was annotated by board-certified, expert pathologists. The annotated the slides without any additional information and got the images anonymized. They needed to record all local and global categories in checkboxes to draw a clinical conclusion and we ignored free-hand annotation as it was not crucial for comparison in clinical diagnosis. 
 
 \vspace{4mm}
 
@@ -491,7 +492,7 @@ sized patches and matched the location of the annotations to the corresponding p
 
 \vspace{4mm}
 
-\par We gathered two main types of annotations for the dataset: local and global labels. Locally we asked pathologists to annotate the following regions by drawing free-hand masks on the slide with QuPath. The categories were selected based on clinical relevance, expert review and consensus.
+\par We gathered two main types of annotations for the dataset: local and global labels. Locally we asked pathologists to annotate the following regions by drawing free-hand masks on the slide with QuPath. The categories were selected based on clinical relevance, expert review, and consensus.
 
 \vspace{4mm}
 
@@ -559,7 +560,7 @@ sized patches and matched the location of the annotations to the corresponding p
 
 \vspace{7mm}
 
-\par Our vision models were implemented in Tensorflow v2.0. and as I mentioned before it was a two step process. The first model was a ResNet50 based architecture \cite{he2016deep} with a fully-connected head on top of it. Optimization was done with the Rectified Adam optimizer \cite{liu2019variance} with lookahead \cite{zhang2019lookahead}. The objective function was the sum of pairwise binary cross-entropy loss since a patch could be labeled with more categories if its on a mask edge. This model has approximately 24 million trainable parameters: 
+\par Our vision models were implemented in Tensorflow v2.0. and as I mentioned before it was a two-step process. The first model was a ResNet50 based architecture \cite{he2016deep} with a fully-connected head on top of it. Optimization was done with the Rectified Adam optimizer \cite{liu2019variance} with lookahead \cite{zhang2019lookahead}. The objective function was the sum of pairwise binary cross-entropy loss since a patch could be labeled with more categories if its on a mask edge. This model has approximately 24 million trainable parameters: 
 
 \vspace{4mm}
 
@@ -572,7 +573,7 @@ sized patches and matched the location of the annotations to the corresponding p
     \scriptsize
     \begin{tabular}{| c | c |} \hline
         \textbf{layer} name &  \textbf{ResNet50} \\ \hline
-        conv1 &  7 \times 7, 64, stride 2 \\ \hline
+        conv1 &  \makecell{7 \times 7, 64, stride \quad 2} \\ \hline
         conv2\_x &  \makecell{3 \times 3 \quad max \quad pool, \quad stride \quad 2 \\ \begin{bmatrix}
 1 \times 1, 64 \\
 3 \times 3, 64 \\
@@ -596,13 +597,206 @@ sized patches and matched the location of the annotations to the corresponding p
         & average pool, 256-d fc, 128-d fc, 10-d fc \\ \hline
     \end{tabular}
     \endgroup
-    \caption{Caption}
+    \caption{Layout of the modified ResNet50 architecture - the convolutions also include batch normalization and the non-linearities are rectified linear units}
     \label{tab:my_label}
 \end{table}
 
 \vspace{4mm}
 
-\par We applied binary cross-entropy loss between all pairs, the parameters were $10^{-4}$ base learning rate for the Rectified Adam optmizer which decayed in $45'000$ steps to $5 \cdot 10^{-6}$ while the lookahead optmizer did updates with a $0.5$ step size after six steps of exploration.
+\par We applied binary cross-entropy loss between all pairs, the parameters were $10^{-4}$ base learning rate for the Rectified Adam optimizer which decayed in $45'000$ steps to $5 \cdot 10^{-6}$ while the lookahead optimizer did updates with a $0.5$ step size after six steps of exploration. 
+
+\vspace{4mm}
+
+\par The training was carried out on approximately 1200 training slides and the testing was done on a held-out test set of 100 randomly selected slides. After 5 epochs the training converged and a complete patch level accuracy of \textbf{73.1} \% was achieved on the held-out test set while \textbf{79.1} \% was achieved on the training set. By complete accuracy we mean a complete match between all labels of a patch, if we would have only considered naive binary accuracy these results are above \textbf{95} \% for both training and testing sets. The total process took around 3 weeks on an NVIDIA Tesla V100 16 GB GPU device.
+
+\vspace{4mm}
+
+\par Having trained the classification network a new training set could be built for the UNET model. This training set was assembled by taking the output of the $(128-d \ FC)$ layer of the classification network, reducing the dimension of the input patch from \begin{markdown}
+512 x 512 x 3
+\end{markdown}
+to $128$. As it can be seen on figure \ref{fig:annotation} the annotated patches are not forming a continuous block just individual patches, therefore, we had to fill the inter-tissue regions with zeroed out 128-dimensional vectors and padded the resulting image's edges to the smallest possible power of two since the UNET does many layers of down-sampling with a \begin{markdown}
+2 x 2
+\end{markdown}
+kernel. The resulting input feature map is therefore 
+
+\begin{equation*}
+    I_{feature\_map} = 2^{n} \cdot 2^{m} \cdot 128
+\end{equation*}
+
+\par Where $n, m$ are different based on the original extent of the annotated region on the slide. As a consequence, the segmentation model can only be trained with a batch size of 1 since each input feature is differently sized. 
+
+\vspace{4mm}
+
+\begin{table}[H]
+    \centering
+    \begin{adjustbox}{width=.7\textwidth}
+    \begingroup
+    \setlength{\arrayrulewidth}{0.1mm}
+    \setlength{\tabcolsep}{9pt}
+    \renewcommand{\arraystretch}{.5}
+    \tiny
+    \begin{tabular}{| c | c |} \hline
+        \textbf{layer name} &  \textbf{Modified UNET} \\ \hline
+        conv1 - down sampling &  \makecell{
+        \begin{bmatrix}
+            3 \times 3, 256
+        \end{bmatrix}, stride 2, LeakyReLU} \\ \hline
+        conv2 - down sampling &  \makecell{
+        \begin{bmatrix}
+            3 \times 3, 512
+        \end{bmatrix}, stride 2, \\ InstanceNormalization, LeakyReLU} \\ \hline
+        conv3 - down sampling &  \makecell{
+        \begin{bmatrix}
+            3 \times 3, 512
+        \end{bmatrix}, stride 2, \\ InstanceNormalization, LeakyReLU} \\ \hline
+        conv4\_1 - down sampling &  \makecell{
+        \begin{bmatrix}
+            3 \times 3, 1024
+        \end{bmatrix}, stride 2, \\ InstanceNormalization, LeakyReLU} \\ \hline
+        conv4\_2 - down sampling &  \makecell{
+        \begin{bmatrix}
+            3 \times 3, 1024
+        \end{bmatrix}, stride 2, \\ InstanceNormalization, LeakyReLU} \\ \hline \hline
+        %%%%%%%%%%%%%%%
+        %%%%%%%%%%%%%%%
+        upconv4\_1 - up sampling &  \makecell{ transpose convolution - 
+        \begin{bmatrix}
+            3 \times 3, 1024
+        \end{bmatrix}, \\ 
+        stride 2, dropout 0.5 \\ InstanceNormalization, ReLU} \\ \hline
+        upconv4\_2 - up sampling &  \makecell{ transpose convolution - 
+        \begin{bmatrix}
+            3 \times 3, 512
+        \end{bmatrix}, \\ 
+        stride 2, dropout 0.5 \\ InstanceNormalization, ReLU} \\ \hline
+        upconv3 - up sampling &  \makecell{ transpose convolution - 
+        \begin{bmatrix}
+            3 \times 3, 512
+        \end{bmatrix}, \\ 
+        stride 2 \\ InstanceNormalization, ReLU} \\ \hline
+        upconv2 - up sampling &  \makecell{ transpose convolution - 
+        \begin{bmatrix}
+            3 \times 3, 256
+        \end{bmatrix}, \\ 
+        stride 2 \\ InstanceNormalization, ReLU} \\ \hline
+        upconv1 - up sampling &  \makecell{ transpose convolution - 
+        \begin{bmatrix}
+            3 \times 3, 11
+        \end{bmatrix}, \\ 
+        stride 2 \\ InstanceNormalization, ReLU} \\ \hline
+    \end{tabular}
+    \endgroup
+    \end{adjustbox}
+    \caption{Layout of the modified UNET architecture - the appropiate skip connections have been established}
+    \label{tab:unet_arch}
+\end{table}
+
+\vspace{4mm}
+
+\par  The target feature map is an $\argmax$ taken over the true patch label. This way we drop some labels where a patch is both annotated normal and dysplasia due to being on an annotations margin but it does seem a minor issue since the original region is down-scaled by a factor of 512 where the annotation edges do not matter that much. With the zeroed out features a new target appeared and we could call it background. So in total, we have now 11 distinct and mutually exclusive labels to predict for a feature in the map, therefore it is possible to use categorical cross-entropy as our objective function.
+
+\vspace{4mm}
+
+\par The architecture of the modified UNET model is presented above in table \ref{tab:unet_arch} where the appropriate skip connections have been established between $(conv4\_1, upconv4\_1)$, $(conv3, upconv4\_2)$, $(conv2, upconv3)$, $(conv1, upconv2)$:
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{model.png}
+    \caption{UNET skip connections visualized}
+    \label{fig:unet_skip_vis}
+\end{figure}
+
+\vspace{4mm}
+
+\par Here an input size of  \begin{markdown}
+256 x 256 x 128
+\end{markdown}
+was provided for simplicity, selecting $n, m$ to be both $8$. This was done to be able to see appropriate dimensions along with concatenation layers and convolutional layers. 
+
+\vspace{4mm}
+
+\par Training was executed for 7 epochs with early stopping, the Rectified Adam optimizer was used with Lookahead and the objective was categorical cross-entropy for the 11 labels available. Data augmentation techniques were implemented such as random cropping, horizontal and vertical flipping, and the last but not least $\pm 90^{\circ}$ rotations. The UNET model contained approximately 40 million parameters and converged after the first two epochs:
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{results/unet_training_history.png}
+    \caption{UNET training history : loss/accuracy - epoch}
+    \label{fig:unet_training_history}
+\end{figure}
+
+\vspace{4mm}
+
+\par The training was done on the same set as the training of the classification network and the testing was executed on the held-out test set as well.
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.62\textwidth]{results/009_19_5011_I.png}
+    \caption{Detecting dysplasia and normal tissue with high accuracy}
+    \label{fig:dysplasia_normal_unet}
+\end{figure}
+
+\vspace{4mm}
+
+\par Detecting dysplasia and normal tissue seem to work well and achieve a high accuracy score in almost all cases on the test set. The categorical accuracy on top of figure \ref{fig:dysplasia_normal_unet} was taken without the background class since that is very easy to predict and would rise accuracies even higher without any further meaning. Moving on to more serious categories:
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{results/046_19_8538.png}
+    \caption{Adenocarcinoma and tumor necrosis detection with lower accuracy}
+    \label{fig:adeno_tumor_unet}
+\end{figure}
+
+\vspace{4mm}
+
+\par In figure \ref{fig:adeno_tumor_unet} we can observe that separating adenocarcinoma and tumor necrosis is not perfect and even an originally normal region has been annotated tumor necrosis in the predicted label map. They are qualitative results even though we can calculate categorical accuracy scores since it is not obvious how high the inter-observer variability in real life between doctors, so we would need a more general approach to examine the results provided by the neural networks.
+
+\vspace{7mm}
+
+\subsection{Evaluation of results}
+
+\vspace{7mm}
+
+\par How one should approach evaluating results without a ground truth? Since these slides require expert pathologists to give a diagnosis and their expert review can differ, we will evaluate by what margin, it is necessary to come up with some kind of evaluation method. First, we should check the total, unaltered consensus between each pathologist who took part in the test set evaluation and compare them to the AI pathologist. This enables us to check inter-observer variability and see whether the AI doctor is an odd-one-out or not.
+
+\vspace{4mm}
+
+\par Let us start with the simple example of total consensus between doctors. The evaluation of slides has been reduced to the following metric. Doctors should select all the categories that apply from the local annotations ( \begin{markdown}
+`none`, `dysplasia`, `highgrade_dysplasia`, `adenocarcinoma`, 
+`suspicious_for_invasion`, `inflammation`, `resection_edge`,
+`tumor_necrosis`, `lymphovascular_invasion`, `artifact`, `normal`
+\end{markdown} 
+) and a total consensus between them means that the one-hot-encoded label vectors match completely.
+
+\vspace{4mm}
+
+\par Evaluation, therefore, went as follows. 15 doctors have done this checkbox style evaluation for 100 test slides and selected all the appropriate local categories present on without any surgical information or meta-data. We evaluated the features from the classification network through the UNET architecture to get a semantic segmentation map of the slide and reduced all the predicted categories to a set of labels. With the exclusion of the label \begin{markdown} `none` 
+\end{markdown}
+we set a threshold of $5$ \% to be the minimum region occupied by the corresponding label otherwise drop it completely. With all this in mind the resulting consensus diagram is presented below:
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{results/consensus.png}
+    \caption{Consensus between doctors labeled 0-14 and the AI pathologist}
+    \label{fig:my_label}
+\end{figure}
+
+\vspace{4mm}
+
+\par At the end of each row, the average of consensus scores have been taken for all pathologists with the others (excluding themselves). In this regard, the AI pathologist seems to be among the top performers. However, we should take a look at the local categories as well based on consensus to see whether the AI doctor can separate those satisfyingly.
+
+\vspace{4mm}
+
+\par 
 
 \newpage
 
