@@ -84,7 +84,7 @@ tabsize=3
     \vspace{.5cm}
     \rule{140mm}{0.1mm}\\
     \vspace{.5cm}
-    {\large\itshape Olar Alex\par}
+    {\large\itshape Alex Olar\par}
     \vfill
     supervisor\par
     \vspace{0.5cm}
@@ -119,23 +119,23 @@ In 2012 a neural network-based architecture won the ImageNet Large Scale Visual 
 
 \vspace{7mm}
 
-Neural networks are universal function approximators that are organized into layers. Layers of a neural network can be highly specialized, such as convolutional layers, that can efficiently learn spatial features, others might simply do matrix multiplication and apply a non-linear mapping to the input to extract underlying information from the data. A neural network architecture nowadays is a concatenation of differentiable layers and training means adjusting the tunable weights of these layers simultaneously based on input data and an objective/loss function that we aim to minimize.
+Neural networks are universal function approximators that are organized into layers. Layers of a neural network can be highly specialized, such as convolutional layers, that can efficiently learn spatial features, others might simply do matrix multiplication and apply a non-linear mapping to the input to extract underlying information from the data. Neural network architectures nowadays are a concatenation of differentiable layers and training means adjusting the tunable weights of these layers simultaneously based on input data and an objective/loss function that we aim to minimize.
 
 \vspace{4mm}
 
-\par Computer vision for many years was based on hand-engineered feature extraction and although convolutional neural networks (CNNs) were used for some dimensionally constrained problems, such as hand-written digit recognition \cite{lecun1998gradient}. The breakthrough for CNNs came with the advent of graphical processing units (GPUs). As these processors have become widely available due to computer gaming the hardware was pushed to its limits and manufacturers poured a lot of money into research. Therefore the GPUs not only did include more and more on-board memory year-by-year but also performance was improving rapidly. Since computer graphics require a lot of matrix multiplication and concurrent, parallelized computation the scientific community jumped on it and started using graphical processors.
+\par Computer vision for many years was based on hand-engineered feature extraction and although convolutional neural networks (CNNs) were used for some dimensionally constrained problems, such as hand-written digit recognition \cite{lecun1998gradient}. The breakthrough for CNNs came with the advent of graphical processing units (GPUs). As these processors have become widely available due to computer gaming the hardware was pushed to its limits and manufacturers poured a vast amount of money into research. Therefore the GPUs not only did include more on-board memory year-by-year but also performance was improving rapidly. Since computer graphics require a lot of matrix multiplication and concurrent, parallelized computation the scientific community jumped on it and started using graphical processors for general purpose computing.
 
 \vspace{4mm}
 
-\par The ImageNet Large Scale Visual Recognition Challenge \cite{ILSVRC15} was launched in 2010 with approximately 1.2 million images containing 1000 categories. The goal of the challenge was to classify images into these categories on a held-out test set that was not provided for the participants beforehand. In 2011 a 25\% top-5 error rate was already considered very good but in 2012 the first convolutional neural network-based model \cite{krizhevsky2012imagenet} won the challenge beating the top results by a huge margin. To do so good they used GPUs heavily and proved that image classification is possible via CNNs on large scale images as well.
+\par As computer vision progressed, a need for comparable results was long overdue. The ImageNet Large Scale Visual Recognition Challenge \cite{ILSVRC15} was launched in 2010 with approximately 1.2 million images containing 1000 categories. The goal of the challenge was to classify images into these categories on a held-out test set that was not provided for the participants beforehand. In 2011 a 25\% top-5 error rate was already considered very good but in 2012 the first convolutional neural network-based model \cite{krizhevsky2012imagenet} won the challenge beating the top results by a huge margin. To do so good they used GPUs heavily and proved that image classification is possible via CNNs on large scale images as well. Therefore, the ImageNet top-5 accuracy score became the standard metric of comparing computer vision algorithms and to this day, new architectures are always compared for ImageNet performance in supervised, weakly-supervised and unsupervised settings as well.
 
 \vspace{4mm}
 
-\par Soon after the re-discovery of convolutional networks for image recognition tasks the scientific community in computer vision realized that convolutional neural networks learn generalizable features and the datasets they considered different so far are not so distinct after all. Networks trained on a dataset of recognizing 1000 different classes can be transferred to other datasets with the change of the top of the network to recognize fundamentally different images. This method is called transfer learning and is exceedingly used nowadays thanks to its efficiency.
+\par Soon after the re-discovery of convolutional networks for image recognition tasks the scientific community in computer vision realized that convolutional neural networks learn generalizable features and the datasets they considered different so far are not so distinct after all. Networks trained on a dataset of recognizing 1000 different classes can be transferred to other datasets with the change of the top of the network to recognize fundamentally different images. This method is called transfer learning and is exceedingly used nowadays thanks to its efficiency. It is rather surprising that a model trained on the ImageNet dataset which contains natural images in different contexts such as dogs in the contry side, cars in traffic, humans at work, etc. can generalize to healthcare applications such as cell segmentation, malignity detection, tissue classification via transfer of these learnt weights. 
 
 \vspace{4mm}
 
-\par Soon enough human performance was surpassed \cite{he2016deep} by the ResNet architecture and since then people are arguing whether there is still a need for improving ImageNet performance because it is so good. In response to that, the ILSVRC stopped in 2017 to focus on other problem sets. 
+\par Soon enough human performance on ILSVRC was surpassed \cite{he2016deep} by the ResNet architecture and since then people are arguing whether there is still a need for improving ImageNet performance because it is so good. In response to that, the main challenge stopped in 2017 to focus on other problem sets. On the other hand, ILSVRC performance remained a gold standard for architecture evaluation. 
 
 \vspace{7mm}
 
@@ -143,28 +143,40 @@ Neural networks are universal function approximators that are organized into lay
 
 \vspace{7mm}
 
-Currently, deep learning is everywhere and almost everyone is trying to use it to achieve better accuracy in some tasks. In the industry, the main application for artificial intelligence (AI) is to develop self-driving cars in addition to improve recommendation systems for online commercials. On the other hand, it would be highly beneficial for modern societies to use computer vision for better healthcare, education, road safety.
+Currently, deep learning is everywhere and almost everyone is trying to use it to achieve better accuracy in some tasks. In the industry, the main application for artificial intelligence (AI) is to develop self-driving cars in addition to improve recommendation systems for online commercials. On one hand, this certainly drives the economy and as a byproduct we could achieve safer transportation and better overall service as costumers/consumers. On the other hand, it would be highly beneficial for modern society to use computer vision for significantly better healthcare and education. Deep learning has enabled us to do us, from now on, the question is time and effort.
 
 \vspace{4mm}
 
-\par Google has partnered with the United Kingdom's health system ( NHS - National Health System ) to gather all the data they can to improve diagnostics and to build algorithms that can work for medics and sanitary workers to improve healthcare. This all sounds too good to be true in capitalism and it is. This has caused outrage amongst the people of the UK \cite{kollewe_2019} but they have some undeniable results regarding reading mammograms better than radiologists \cite{mckinney2020international}. We are in an era where governments can lead large-scale projects (in data size) to improve their healthcare systems without investing vast amounts of money for equipment. The COVID-19 crisis showed that with enough data and computational resources pneumonia detection can be achieved with high accuracy \cite{nvidia}.
+\par Not so long ago, Google, the tech giant, has partnered with the United Kingdom's healthcare system ( NHS - National Health System ) to gather all the data they can to improve diagnostics and to build algorithms that can work for medics and sanitary workers to improve healthcare. This all sounds too good to be true in capitalism and it is. This has caused outrage amongst the people of the UK \cite{kollewe_2019} regarding personal data protection, however, researchers at Google have some undeniable results such as, reading mammograms better than radiologists \cite{mckinney2020international}, developing a real-time colorectal cancer detection microscope \cite{chen2019augmented}. We are in an era where governments can lead large-scale projects (in data size) to improve their healthcare systems without investing vast amounts of money for equipment, labor and facilities. The COVID-19 crisis showed that with enough data and computational resources pneumonia detection can be achieved with high accuracy \cite{nvidia} proving that computer vision in medicine can be achieved on-demand.
 
 \vspace{4mm}
 
-\par In my opinion computer vision has achieved a state that almost every vision-related task can be done on human performance level or even surpassed by computers. Such as glial cell detection in mouse brain tissue \cite{suleymanova2018deep}, reading mammograms  \cite{ribli2018detecting}, 
-predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such as CT's \cite{cciccek20163d}. I could also mention advancement in weak-lensing, astrophysics \cite{ribli2019improved} and new areas to explore, such as Hamiltonian \cite{greydanus2019hamiltonian} and Lagrangian \cite{cranmer2020lagrangian} neural networks for physics. It is also worth to mention advancement in reinforcement learning that started with playing Atari games \cite{mnih2013playing} successfully and on-par with human players and led to playing Dota 2 and Starcraft \cite{alphastarblog} in top-tier leagues. This might sound irrelevant but reinforcement learning robots will take over jobs of production line workers \cite{satariano_metz_2020} very soon.
+\par Computer vision has matured enough to reach a state where almost every vision-related task can be done on human performance level or even surpassed by computers. Such as glial cell detection in mouse brain tissue \cite{suleymanova2018deep}, reading mammograms  \cite{ribli2018detecting}, 
+predicting colorectal cancer outcome of patients \cite{skrede2020deep}, diagnosing volumetric data such as CT's \cite{cciccek20163d}. I could also mention advancement in weak-lensing, astrophysics \cite{ribli2019improved} and new areas to explore, such as Hamiltonian \cite{greydanus2019hamiltonian} and Lagrangian \cite{cranmer2020lagrangian} neural networks for physics, where the dynamics of the system is deduced from sensory input going so far as learning actual physics from images with generative models \cite{toth2019hamiltonian}. It is also worth to mention advancement in reinforcement learning that started with playing Atari games \cite{mnih2013playing} successfully and on-par with human players and led to playing Dota 2 and Starcraft \cite{alphastarblog} in top-tier leagues, both of which are tremendously complex environments that resemble real world complexity. This might sound irrelevant but reinforcement learning robots will take over the majority of production line jobs \cite{satariano_metz_2020} very soon.
 
 \vspace{4mm}
 
-\par Therefore it is the right time to research the widespread application of AI in the medical field and I am certain that doing something here is highly beneficial not only for career self-advancement but also for the society as well. 
+\par As a consequence, it is high time to research the widespread applications of AI in the medical field and in natural sciences in general. Finally, I am certain that doing something here is highly beneficial not only for self-advancement or other opportunistic reasons but also for society. We are building the future and even though I laid out a rather over-optimistic view on it, we must take precautions while deploying such systems to avoid built-in bias in our models \cite{amodei2016concrete}.
 
-\vspace{7mm}
+\newpage
 
 \subsection{Overview}
 
 \vspace{7mm}
 
-//TODO: sum up everything here that comes
+\par In the following sections I provide a brief overview of what machine learning is and how it is used in computer vision. I gather the intuitions of building such systems and talk more about convolutional algorithms. Also in this section I give a quick walk-through of a simple binary classification problem and show how that can be solved either by logistic regression or via neural networks. Closing this section the general structure of convolutional neural networks is presented.
+
+\vspace{4mm}
+
+\par In the succeeding section, I present in a nutshell the field of medical imaging and especially cancer detection/recognition. Here I mention some statistical details about cancer and demonstrate how computer vision can revolutionize treatment and patient care.
+
+\vspace{4mm}
+
+\par Moving on to the first application that I have been part of for almost a year. In this thesis, I display the techniques we used for different types of colorectal tissue recognition and malignity detection. In addition, I also exhibit the process of gathering a unique and in-size unprecedented dataset for colorectal cancer research and reveal some of our results.
+
+\vspace{4mm}
+
+\par Furthermore, I shortly talk about an on-going DREAM Challenge \footnote{'The DREAM Challenges are an open science effort, a non-profit, collaborative community effort consisting of contributors from across the research spectrum including researchers from universities; technology companies like IBM Research; not for profits, like Sage Bionetworks; and biotechnology and pharmaceutical companies.' - source \url{dreamchallenges.org/about-dream}} that deals with automated rheumathology. As the competition is still in progress, I cannot disclose any data, not even for presentation, nor include any results, as a consequence I only present our work and the methods we used. Currently we are amongst top participants.
 
 \newpage
 
@@ -176,7 +188,22 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{7mm}
 
-\par The human visual cortex is composed of many hierarchical layers but the image data required by our eyes is processed through cells on the retina that are sensitive to light known as the rods and cones. The rods are sensitive to color whilst the cones are sensitive to the intensity of the photons. The number of cones is significantly higher than the number of rods, therefore we are much more adapted to detecting light intensity than to colors. There are three types of these cone cells causing trichromacy \cite{arrese2002trichromacy} and therefore in computer science, the most widespread format of images is stored in RGB (red-green-blue) channels. The visual cortex is doing edge detection in the V1 (primary visual cortex) which has been computationally reproduced \cite{olshausen1996emergence} while it is assumed that the V2 \cite{ZiembaV2} and V4 are doing much more abstract representations, the latter already producing objects.
+\par The human visual cortex is composed of many hierarchical layers. The image data required by our eyes is processed through cells on the retina that are sensitive to light known as the rods and cones. The rods are sensitive to color whilst the cones are sensitive to the intensity of the photons. The number of cones is significantly higher than the number of rods, therefore we are much more adapted to detecting light intensity than to colors. There are three types of these cone cells causing trichromacy \cite{arrese2002trichromacy} and therefore in computer science, the most widespread format of storing image data is in RGB (red-green-blue) channels. The visual cortex is doing edge detection in the V1 (primary visual cortex) which has been computationally reproduced \cite{olshausen1996emergence} while it is assumed that the V2 \cite{ZiembaV2} and V4 are doing much more abstract representations, the latter already producing objects. Some researchers are occupying with demonstrating the same in neural networks \cite{cammarata2020thread:}.
+
+\vspace{4mm}
+
+\begin{minipage}[t]{0.35\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{intro/visual-cortex.png}
+    \captionof{figure}{General layout of the human visual cortex}
+    \label{fig:human-cortex}
+\end{minipage}
+\begin{minipage}[t]{0.55\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{intro/eraly-vision-distill.png}
+    \captionof{figure}{Early vision in a convolutional neural network - source \url{https://distill.pub/2020/circuits/early-vision/}}
+    \label{fig:sigmoid}
+\end{minipage}
 
 \vspace{7mm}
 
@@ -184,7 +211,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{7mm}
 
-\par All these arguments inspired many-layered convolutional neural networks that are doing computations spatial data such as images. Convolutions are about learning sliding kernels on three-dimensional image data (two spatial dimensions and color channels, 2 + 1) these kernels provide efficient and translation invariant parameters for the models. The convolutional operation is relatively simple and straight-forward. On one dimensional sequences and functions, it is defined as:
+\par All these arguments inspired many-layered convolutional neural networks that are doing computations on spatial data such as images. Convolutions are about learning sliding kernels on three-dimensional image data (two spatial dimensions and color channels, 2 + 1) these kernels provide efficient and translation invariant parameters for the models. The convolutional operation is relatively simple and straight-forward. On one dimensional sequences and functions, it is defined as:
 
 \begin{align*}
     (u * v)_n = \sum_{m = -\infty}^{\infty} u_{m} v_{n-m} \\
@@ -203,7 +230,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par This can be visually illustrated by the figure below where the parameters of $K$ on the image is learned algorithmically by seeing lots of examples:
+\par This can be visually illustrated by the figure below where the parameters of $K$ (blue) are learned algorithmically by seeing lots of examples:
 
 \vspace{4mm}
 
@@ -216,19 +243,25 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par There are two main branches of machine learning, such as supervised and unsupervised learning. In applications of computer vision supervised learning is used most of the time. These are methods for image classification, object detection/segmentation. These all work by defining an objective function we want to minimize to achieve a desired rate of error. 
-
-\subsubsection{Binary classification}
-
-\par The simplest case is probably binary classification. In binary classification we want to maximize the joint probability of getting a data point $x$ and by applying a function $f(x, \theta) = \hat{y}$, where $\theta$ are function parameters, we predict $\hat{y}$ probability for $x$ being in class $1$ and therefore $1 - \hat{y}$ probability for being in class $0$. If $y$ is the true label of the data point, then we can formalize our explanation as:
+\par There are two main branches of machine learning, such as supervised and unsupervised learning. In applications of computer vision supervised learning is used most of the time as it is more interpretable than unsupervised techniques and generally the goal of unsupervised learning is pre-training for supervised algorithms or knowledge distillation. These are methods for image classification, object detection/segmentation. These all work by defining an objective function we want to minimize to achieve a desired rate of error. 
 
 \vspace{4mm}
 
-\begin{align}
+\par The difference between a traditional regression method and a neural network lies in the fact the we aim to develop algorithms that generalize extremely well on unseen data, therefore we not solely aim to minimize the objective function on our data but to do so on every possible dataset that comes from the same underlying distribution. To achieve this the standard way of developing these algorithms is to split any dataset to training, validation and testing sets where we validate our algorithms on the validation set, tuning the parameters during training in order to achieve the low validation error then, without modification we evaluate on the test set. This is necessary since by tuning hyper-parameters of training we inherently minimize error on the validation set, therefore tuning for validation performance which is biased. The gap between validation error and test error somehow measures the rate of this bias and the aim is to keep this minimal.
+
+\subsubsection{Binary classification}
+
+\vspace{4mm}
+
+\par The simplest case of supervised learning is probably binary classification. In binary classification we want to maximize the joint probability of getting a data point $x$ and by applying a function $f(x, \theta) = \hat{y}$, where $\theta$ are function parameters, we predict $\hat{y}$ probability for $x$ being in class $1$ and therefore $1 - \hat{y}$ probability for being in class $0$. If $y$ is the true label of the data point, then we can formalize our explanation as:
+
+\vspace{4mm}
+
+\begin{align*}
     P(y = 1 | x) = \hat{y} \\
     P(y = 0 | x) = 1 - \hat{y} \\
     \quad \rightarrow P(y | x) = \hat{y}^{y} \cdot (1 - \hat{y})^{(1-y)}
-\end{align}
+\end{align*}
 
 \vspace{4mm}
 
@@ -238,11 +271,20 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \begin{equation}
     L\big(y, \hat{y}\big) = -\sum_{i = 1}^{N_{data}} \Big(y^{(i)}\log\hat{y}^{(i)} + (1 - y^{(i)})\log(1 - \hat{y}^{(i)})\Big)
+    \label{eq:bernoulli-loss}
 \end{equation}
 
 \vspace{4mm}
 
-\par As we acquired $\hat{y}^{(i)}$ by a function $f(x^{(i)}, \theta) = \hat{y}^{(i)}$ on the data point $x$ with parameters $\theta$ therefore the objective function is parametrized by $\theta$ as well. So by feeding exemplary data points to $f$ and calculating the loss we could also calculate the corresponding derivatives of the loss to the parameters $\frac{\partial L}{\partial \theta}$ and apply these derivatives with a predefined rate $\mu$ to improve the objective. We call this gradient descent since the gradient of the function gives the biggest slope on the multidimensional surface spanned by $\theta$ and if we move to the opposite direction of the gradients we then minimize the desired function. We call it batch stochastic gradient descent (SGD) if only a batch of samples is used due to computational resource limitations. This introduces noise to the learning process but if we sample the data uniformly we could still improve the objective function in many iterations:
+\par In this special case (\ref{eq:bernoulli-loss}) is called the Bernoulli-loss, due to the binary variable we predict. As we acquired $\hat{y}^{(i)}$ as a function $f(x^{(i)}, \theta) = \hat{y}^{(i)}$ on the data point $x$ with parameters $\theta$, therefore the objective function is parametrized by $\theta$ as well. 
+
+\vspace{4mm}
+
+\par The simplest technique would be to do linear regression on the training data and normalize it to $(0, 1)$ with a sigmoid function. This is called logistic regression and can be done by fitting the data to the objective with familiar methods or with gradient steps as described in the next paragraph.
+
+\vspace{4mm}
+
+By feeding exemplary data points to $f$ and calculating the loss we could also calculate the corresponding derivatives of the loss to the parameters $\frac{\partial L}{\partial \theta}$ and apply these derivatives with a predefined rate $\mu$ to improve the objective. We call this gradient descent since the gradient of the function gives the biggest slope on the multidimensional surface spanned by $\theta$ and if we move to the opposite direction of the gradients we then minimize the desired function. We call it batch stochastic gradient descent (SGD) if only a batch of samples is used due to computational resource limitations. This introduces noise to the learning process but if we sample the data uniformly we could still improve the objective function in many iterations:
 
 \vspace{4mm}
 
@@ -266,9 +308,11 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\subsubsection{Structure of a CNN}
+\subsubsection{Structure of a modern CNN}
 
-\par The structure of a convolutional neural network is the following: the input is a 3-dimensional array, representing an image. The image is then fed-forward through convolutional layers with different sized and number of filters. The main intuition behind selecting the right filter/kernel sizes comes from the VGG16 architecture \cite{simonyan2014very}. The main intuition is that small kernels, usually $3x3$, can have a high receptive field after many layers, therefore using larger kernels only uses more computational resources and is not that useful. Since the image is compressed after some or each convolution by maximum or average pooling or strided convolutions it is usually so that the number of kernels used is increased with the spatial size decreased. After convolutional layers, the data is flattened into a vector and fed to a multi-layer perceptron which is matrix multiplications followed by non-linearities.
+\vspace{4mm}
+
+\par The structure of a modern convolutional neural network is the following: the input is a 3-dimensional array, representing an image. The image is then fed-forward through convolutional layers with different sized and multiplicity of filters. The main intuition behind selecting the right filter/kernel sizes comes from the VGG16 architecture \cite{simonyan2014very}. This intuition is that small kernels, usually $3x3$, can have a high receptive field after many layers, therefore using larger kernels only uses more computational resources and not that useful after all. Since the image is compressed after convolutions by maximum or average pooling or strided convolutions it is usually so that the number of kernels used is increased with the spatial size of the input image is decreased. After convolutional layers, the data is flattened into a vector or each feature map gets globally maximum or average pooled and fed into a multi-layer perceptron which is matrix multiplications followed by non-linearities \ref{fig:modern-cnn}.
 
 \vspace{4mm}
 
@@ -276,14 +320,14 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
     \centering
     \includegraphics[width=.8\linewidth]{wiki_cnn.png}
     \caption{Structure of a convolutional neural network - Convolutional neural networks, Wikipedia}
-    \label{fig:my_label}
+    \label{fig:modern-cnn}
 \end{figure}
 
 \vspace{4mm}
 
-\par The non-linearities or activation functions are applied after each layer to make the computation non-linear. This is necessary since a linear computation can always be represented by matrix multiplication. The best working non-linearity proved to be the rectified linear unit ReLU in deep learning and is used throughout networks. The last non-linearity, on the other hand, can be different based on the problem. For regression, it might not be needed with unbounded predictions, for binary classification the sigmoid function is used which saturates the real number in a (0, 1) interval and for non-binary classification the softmax function is used which return a probability distribution among N classes for each sample.
+\par The non-linearities or activation functions are applied after each layer to make the computation non-linear. This is necessary since a sequence of linear computations can always be replaced by a single matrix multiplication. The best working non-linearity proved to be the rectified linear unit, ReLU,  in deep learning and is used throughout many networks. The last non-linearity, on the other hand, can be different based on the problem. For regression, it might not be needed with unbounded predictions, for binary classification the sigmoid function is used which saturates the real numbers to the $(0, 1)$ interval and for non-binary classification the softmax function is used which returns a probability distribution over N classes for each input. The computations are done in batches, as everything is parallelizable, computation can be sped up by the number of available processor units, shared memory is only needed for the final loss computation.
 
-\vspace{4mm}
+\vspace{7mm}
 
 \begin{minipage}[t]{0.45\textwidth}
     \centering
@@ -306,7 +350,7 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par We have seen the objective function for binary classification before where we use the sigmoid activation function to acquire probabilities from the model but in the case of multi-class labels we use the cross-entropy loss that is defined as:
+\par We have seen the objective function for binary classification before where we use the sigmoid activation function to acquire probabilities from the model but in the case of multi-class, mutually-exclusive labels we use the cross-entropy loss that is defined as:
 
 \vspace{4mm}
 
@@ -316,9 +360,9 @@ predicting colorectal cancer outcome \cite{skrede2020deep}, volumetric data such
 
 \vspace{4mm}
 
-\par For multi-object detection and segmentation much diverse and more intricate loss functions are used and the networks themselves \cite{ren2015faster} are modified as well to handle sliding-windows efficiently via convolutions \cite{redmon2016you}.
+\par For multi-object detection and segmentation much diverse and more intricate loss functions are used and the networks themselves \cite{ren2015faster} are modified as well to handle sliding-windows efficiently via convolutions \cite{redmon2016you}. I present these in the section of rheumathology automation since we use object localization networks in that setting and it is not closely linked to the general definition of convolutional networks.
 
-\vspace{7mm}
+\newpage
 
 \section{Medical imaging}
 
@@ -796,7 +840,152 @@ we set a threshold of $5$ \% to be the minimum region occupied by the correspond
 
 \vspace{4mm}
 
-\par 
+\par We compared each doctor for each slide they annotated in each category. If they checked the same label for the same slide we added a score of $+1$ to that location and $+1$ for a label that they bot not included. There are some doctors who not yet annotated all the 100 test slides therefore we norm each similarity score by the matching slides. This results in very high scores in rare categories and representative similarity scores between the most important classes.
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{results/similarities_normal.png}
+    \caption{Similarities with annotating the category considered normal}
+    \label{fig:sim_normal}
+\end{figure}
+
+\vspace{4mm}
+
+\par In this category a similarity score of \textbf{86.48 \%} was achieved which is not top performance but a good average and it seems that without the outlier doctors \textbf{9, 10} this might be even further improved since the other doctors match better with their outlier colleagues on average than the AI pathologist. Below we present the categories that are mostly representative and the rest is provided in the supplementary.
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results/similarities_dysplasia.png}
+    \caption{Similarities with annotating the category considered dysplasia}
+    \label{fig:sim_dysp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results/similarities_highgrade_dysplasia.png}
+    \caption{Similarities with annotating the category considered high-grade dysplasia}
+    \label{fig:sim_highgradedysp}
+\end{figure}
+
+\vspace{4mm}
+
+\par From these results it seems that both in local categories dysplasia and high-grade dysplasia the AI pathologist is performing similarly to other doctors. Sadly in a severe category such as adenocarcinoma the resulting algorithm falls behind the rest of the experts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{results/similarities_adenocarcinoma.png}
+    \caption{Similarities with annotating the category considered adenocarcinoma}
+    \label{fig:sim_adeno}
+\end{figure}
+
+\vspace{4mm}
+
+\par TODO: finish evaluation...
+
+\newpage
+
+\section{Deep learning for rheumatology}
+
+\vspace{7mm}
+
+\subsection{Overview of the problem}
+
+\vspace{4mm}
+
+\par Rheumatoid arthritis (RA) is an autoimmune disfunction where the immune system attacks the joints of the body and as a result they become swollen, deformed and degrade. The primary cause of the disorder is unknown and the medical care given to patients is primarily focused on reducing pain and improve life conditions. RA affects 25 million people according to \cite{vos2016global} and therefore a serious issue for the developed world.
+
+\vspace{4mm}
+
+\par In joints RA causes swelling and erosion of bone tissue. This can be evaluated by scanning through X-ray scans of all four limbs of a patient. A general scoring system has been proposed and implemented in clinical procedure by \cite{van1995radiographic}. It includes scoring for all joints in hand and feet for erosion and narrowing but the main aim of the authors was to develop a scoring system that helps to understand and quantify the progression of the disease in patients. The scoring involves for hands a score between 0-5 per joint for 16 joints per hand and a score between 0-4 for narrowing per joint for 15 joints per hand. The feet are scored differently for erosion since 6 joints are involved per foot and each side of the joints are score on a scale of 0-5, as for narrowing the same 6 joints are scored in 0-4 range.
+
+\vspace{4mm}
+
+\par This scoring is visually evaluated and an overall erosion and narrowing score is concluded from a patients hands and foot that describes the degradation rate. 
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{ra/RheumatoideArthritisAP.jpg}
+    \caption{Serious RA degradation, WikiPedia}
+    \label{fig:ra_wiki}
+\end{figure}
+
+\vspace{4mm}
+
+\subsection{The RA2-DREAM Challenge}
+
+\vspace{4mm}
+
+\par The problem is proposed in \url{https://www.synapse.org/#!Synapse:syn20545111/wiki/} and is still on-going at this time. As I am a challenge participant the rules apply to me and I can't share any data and result that we have on this challenge but currently we are in top three teams in all sub-challenges of the competition. I'll describe the method we used and the details from a computer vision perspective.
+
+\vspace{4mm}
+
+\subsection{Data}
+
+\vspace{4mm}
+
+\par No data can be presented before publication of the challenge paper therefore here I will not disclose any data from the challenge set. However, I need to mention that for detection we manually annotated all the challenge data for the joints with tight bounding boxes around them (~20 hours), except the wrist which contained many joints that we handled jointly. Here is a representation of bounding boxes we annotated for images found on RadioPedia:
+
+\vspace{4mm}
+
+\begin{minipage}[t]{0.42\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{ra/ra2-hand-bboxes.png}
+    \captionof{figure}{Annotated hand joints for detection (image soruce - \url{https://radiopaedia.org/cases/mutilating-rheumatoid-arthritis} \url{-of-the-wrist?lang=us})}
+    \label{fig:ra2-hand-annot}
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{ra/ra2-feet-annot.png}
+    \captionof{figure}{Annotated foot joints for detection (image source - \url{https://radiopaedia.org/cases/rheumatoid-arthritis-feet?lang=us})}
+    \label{fig:ra2-foot-annot}
+\end{minipage}
+
+\vspace{4mm}
+
+\par In the challenge the annotated joints then had erosion and narrowing scores accordingly and for each patient the feet and hands were given as examples.
+
+\vspace{4mm}
+
+\subsection{Vision models}
+
+\vspace{4mm}
+
+\par In our vision models we applied a two-step approach. First we used the open-sourced FAIR Detectron2 \cite{wu2019detectron2} framework to implement a Mask-RCNN \cite{he2017mask} detection model on top of our hand-annotated data of the X-ray images. Mask-RCNN is generally used for segmentation but it is an empirical observation that using it for detection with the bounding-boxes as segmentation masks generally helps the algorithm to perform better in detection tasks.
+
+\vspace{4mm}
+
+\par Since the held out test set was not given to participants as the evaluation is done blindly by submitting the trained models we fit the whole training data for segmentation. Generally, selecting a reasonable number of iterations for training a detection model helps achieve good generalization and not so much over-fitting on the training set.
+
+\vspace{4mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{ra/maskrcnn.jpg}
+    \caption{A general layout of Mask-RCNN}
+    \label{fig:mask-rcnn}
+\end{figure}
+
+\vspace{4mm}
+
+\par On the above figure [\ref{fig:mask-rcnn}] the general structure of the segmentation model can be seen which a bounding box regressor based on the Faster R-CNN \cite{ren2015faster} architecture in addition with an instance segmentation module proposed in the Mask-RCNN paper.
+
+\vspace{4mm}
+
+\par The detection was done separately for hands and feet and we applied random horizontal flipping, brightness, saturation and contrast augmentation during the training process. Since a detection model only outputs proposals with a confidence score as results we had to select a threshold manually and had to select the most confident score for each joint. This was usually very high unless the deformation was so bad that even a human observer would have not been able to separate the joints be visual inspection. If the model would be applied in medical practice we could label the less confident segmentation results for additional medical inspection for a doctor with this method.
+
+\vspace{4mm}
+
+\par After the segmentation of the detected hand and foot joints we cut out the image parts from the original X-ray scans and built a dataset with joints and the corresponding erosion and narrowing scores that were given for the training data. We applied a regression model with modified ReLU activation functions that were capped at 4 and 5 according to the limit of erosion and narrowing scores for joint annotations. We applied aggressive image augmentation by changing hue, saturation, contrast levels in addition to horizontal flipping and some slight rotation of the images.
+
+\vspace{4mm}
+
+\par We experimented with several models such as different depth ResNet \cite{he2016deep} architectures as well as state-of-the-art EfficientNetB7 \cite{tan2019efficientnet} architecture. At last, an ensemble of these models provided the best results that we optimized jointly for root mean squared error score. Separate models were trained for hand digits, wrist and foot regression for erosion and narrowing scoring.
 
 \newpage
 
